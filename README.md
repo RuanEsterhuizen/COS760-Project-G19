@@ -28,6 +28,6 @@ TODO: Add link to project proposal
 
 ## Project Specifications
 Only for team use (to be removed later)
-* [Project Template]()
-* [Proposal Evaluation Rubric]()
+* [Project Template](specs/ProjectTemplate_DetectingMachineGeneratedTexts.pdf)
+* [Proposal Evaluation Rubric](specs/ProjectProposalTemplateAndEvaluationRubric-1.pdf)
 
