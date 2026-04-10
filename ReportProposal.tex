@@ -1,6 +1,13 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage{fontspec}
 \usepackage{natbib}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
+\usepackage{float}
+
 \setmainfont{Arial}
 
 \title{<Title of report here> \\[1ex] \large <Subtitle here>}
@@ -12,6 +19,120 @@
     \section{Introduction}
     \section{Background}
     \section{Methodology}
+
+\subsection{Research Questions}
+
+\begin{itemize}
+    \item How do different multilingual models compare in MGT detection in isiZulu?
+    \item What linguistic and stylistic features can be seen in isiZulu MGTs?
+    \item Does diversity in training data enhance detector generalizability?
+\end{itemize}
+
+\subsection{Datasets}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l l l >{\raggedright\arraybackslash}p{5cm} l}
+\toprule
+\textbf{Name} & \textbf{Domain} & \textbf{Size (items)} & \textbf{Description} & \textbf{Repository} \\
+\midrule
+Vuk'uzenzele 
+    & Magazine articles 
+    & 185 
+    & Articles from SA government magazine 
+    & \href{https://github.com/dsfsi/vukuzenzele-nlp}{\uline{link}} \\
+IsiZulu News 
+    & News articles 
+    & 752 
+    & Scraped publicly available news articles
+    & \href{https://github.com/dsfsi/za-isizulu-siswati-news-2022}{\uline{link}} \\
+AfriHate* 
+    & Social media 
+    & $\sim$4000 
+    & Scraped public Twitter posts 
+    & \href{https://github.com/AfriHate/AfriHate}{\uline{link}} \\
+\bottomrule
+\end{tabular}
+\caption{Datasets}
+\end{table}
+
+\textbf{Preprocessing}: All data subsets will have the same size to prevent biases in training. Only isiZulu entries will be used for multilingual datasets.
+
+All datasets will be combined into a singular dataset containing the text and the corresponding label (MGT/HGT).
+
+All datasets are licensed for their use for this project.
+
+* This dataset contains sensitive content; however, only benign entries will be used.
+
+
+
+\subsection{Approach and Methods}
+
+\subsubsection{Models}
+\begin{table}[h]
+\centering
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Name} & \textbf{Languages} & \textbf{Size (parameters)} & \textbf{Repository} \\
+\midrule
+XLM-RoBERTa-base
+    & 100
+    & ~125M
+    & \href{https://huggingface.co/docs/transformers/en/model_doc/xlm-roberta}{\uline{link}} \\
+AfroXLMR-large
+    & 17
+    & 559.9M
+    & \href{https://huggingface.co/Davlan/afro-xlmr-large}{\uline{link}} \\
+Xhosa\_ZuluLlama3
+    & 2 
+    & 8B 
+    & \href{https://huggingface.co/Jacaranda/Xhosa_ZuluLlama3_v1}{\uline{link}} \\
+\bottomrule
+\end{tabular}
+\caption{Models}
+\end{table}
+
+\subsubsection{Approach}
+A diverse dataset, compromising of multiple domains of HGT (e.g. news and social media) will be used. Moreover, MGTs shall be generated using a variety of LLMs (e.g. ChatGPT, Gemini). Dataset diversity has been noted as a limitation in previous work.
+
+
+Models trained on varying numbers of languages (see Table 2) will be used to examine the impact of linguistic diversity.
+
+
+This approach is expected to improve the accuracy and generalizability of MGT detection relative to previous studies.
+
+
+\subsection{Work Plan}
+\subsubsection{Timeline}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l l >{\raggedright\arraybackslash}p{8.5cm} l}
+\toprule
+\textbf{Phase} & \textbf{Task} & \textbf{Description} & \textbf{*Deadline}\\
+\midrule
+1
+    & Dataset Generation
+    & Each member collects LLM data for each domain
+    & 4 May \\
+2 
+    & LLM Fine Tuning
+    & Each member fine-tunes their assigned model
+    & 18 May \\
+3 
+    & Evaluation
+    & Models are tested and results are reported upon
+    & 25 May  \\
+\bottomrule
+\end{tabular}
+\caption{Proposed Project Timeline}
+\end{table}
+
+\subsubsection{Feasibility \& Risk Assessment}
+The work plan will be adhered to through internal deadlines*. Major risks associated include scope creep and potential delays, which will be managed via regular communication.
+
+* Deadlines are subject to change
+    
     \section{Evaluation}
     To evaluate the performance of our proposed models in detecting machine-generated text (MGT) and assessing textual similarity, we utilize standard classification metrics, namely Accuracy, Precision, Recall, and F1-score, and reference-based similarity metrics, namely BLEU \cite{papineni2002bleu}, METEOR \cite{banerjee2005meteor}, ROGUE-L \cite{lin2004rouge}, and BERTScore \cite{zhang2019bertscore}.
 
