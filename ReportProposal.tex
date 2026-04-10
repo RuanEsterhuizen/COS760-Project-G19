@@ -1,9 +1,10 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage{fontspec}
+\usepackage{natbib}
 \setmainfont{Arial}
 
 \title{<Title of report here> \\[1ex] \large <Subtitle here>}
-\author{Ruan Esterhuizen, Ruben Gadd, Christiaan George Strydom \\[1ex] \large Group 19}
+\author{Ruan Esterhuizen, Ruben Hannes Gadd, Christiaan George Strydom \\[1ex] \large Group 19}
 \date{}
 
 \begin{document}
@@ -12,5 +13,16 @@
     \section{Background}
     \section{Methodology}
     \section{Evaluation}
+    To evaluate the performance of our proposed models in detecting machine-generated text (MGT) and assessing textual similarity, we utilize standard classification metrics, namely Accuracy, Precision, Recall, and F1-score, and reference-based similarity metrics, namely BLEU \cite{papineni2002bleu}, METEOR \cite{banerjee2005meteor}, ROGUE-L \cite{lin2004rouge}, and BERTScore \cite{zhang2019bertscore}.
+
+For classification performance, Accuracy measures the overall correct classifications, while Precision measures the proportion of True Positive(TP) predictions to the total predicted positives. Recall measures the models ability to detect True Positive predictions from all True Positive predictions available. The F1-score provides a harmonic mean of Precision and Recall, providing a balance between the two metrics.
+
+The three reference-based similarity metrics used for syntactic similarity are BLEU which measures precision based on exact word/phrase overlap, METEOR which measures a balance of recall and precision allowing synonyms and stemming, and ROUGE-L which measures recall by finding the longest common subsequences of words between the generated and human text. The metric measure semantic similarity is BERTScore which measures similarity using Artificial Intelligence(AI) model embeddings rather than exact word matches.
+
+Furthermore, to evaluate the generalisation capabilities of the MGT detection models, we will test them on an unseen dataset drawn from a different domain. This dataset is sourced from Zenodo \cite{zenodo5035171}, enabling evaluation under cross-domain and cross-model conditions.
+
     \section{Expected Outcomes}
-\end{document}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+    \end{document}
