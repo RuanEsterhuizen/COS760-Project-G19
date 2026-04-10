@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper]{article}
+\documentclass[11pt, a4paper,twocolumn]{article}
 \usepackage{fontspec}
 \usepackage[round]{natbib}
 \usepackage[margin=0.5in]{geometry}
@@ -53,7 +53,7 @@
 
 \subsection{Datasets}
 
-\begin{table}[h]
+\begin{table*}[tp]
 \centering
 \begin{tabular}{l l l >{\raggedright\arraybackslash}p{5cm} l}
 \toprule
@@ -77,7 +77,7 @@ AfriHate*
 \bottomrule
 \end{tabular}
 \caption{Datasets}
-\end{table}
+\end{table*}
 
 \textbf{Preprocessing}: All data subsets will have the same size to prevent biases in training. Only isiZulu entries will be used for multilingual datasets.
 
@@ -92,7 +92,7 @@ All datasets are licensed for their use for this project.
 \subsection{Approach and Methods}
 
 \subsubsection{Models}
-\begin{table}[h]
+\begin{table*}[h]
 \centering
 \begin{tabular}{l l l l}
 \toprule
@@ -113,7 +113,7 @@ Xhosa\_ZuluLlama3
 \bottomrule
 \end{tabular}
 \caption{Models}
-\end{table}
+\end{table*}
 
 \subsubsection{Approach}
 A diverse dataset, compromising of multiple domains of HGT (e.g. news and social media) will be used. Moreover, MGTs shall be generated using a variety of LLMs (e.g. ChatGPT, Gemini). Dataset diversity has been noted as a limitation in previous work.
@@ -128,7 +128,7 @@ This approach is expected to improve the accuracy and generalizability of MGT de
 \subsection{Work Plan}
 \subsubsection{Timeline}
 
-\begin{table}[H]
+\begin{table*}[H]
 \centering
 \begin{tabular}{l l >{\raggedright\arraybackslash}p{8.5cm} l}
 \toprule
@@ -149,7 +149,7 @@ This approach is expected to improve the accuracy and generalizability of MGT de
 \bottomrule
 \end{tabular}
 \caption{Proposed Project Timeline}
-\end{table}
+\end{table*}
 
 \subsubsection{Feasibility \& Risk Assessment}
 The work plan will be adhered to through internal deadlines*. Major risks associated include scope creep and potential delays, which will be managed via regular communication.
