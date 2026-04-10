@@ -17,6 +17,15 @@
 \begin{document}
     \maketitle
     \section{Introduction}
+    With the dawn of the 20th decade of the 21st millennium, the introduction of AI models such as ChatGPT has caused rippling 
+    effects across the world both positive and negative. Such negative effects include the abuse of these models to 
+    generate texts that are becoming increasingly difficult to differentiate between text written by man. In response 
+    to these issues, NLP techniques are utilized with the purpose of identifying between MGT (Machine generated Text) and 
+    HGT (Human Generated Text). In this report proposal we detail an approach to creating a Zulu-based MGT detection tool. 
+    We chose Zulu/isiZulu since it is the most spoken African language in South Africa and shares linguistic roots with other African
+    languages that fall under the Nguni linguistic tree which include isiXhosa, isiSwati and isiNdebele. Additionally, since isiZulu is
+    not as globally spoken outside of Africa, not many models that focus on such languages exist.
+
     \section{Background}
     \section{Methodology}
 
@@ -136,7 +145,7 @@ The work plan will be adhered to through internal deadlines*. Major risks associ
     \section{Evaluation}
     To evaluate the performance of our proposed models in detecting machine-generated text (MGT) and assessing textual similarity, we utilize standard classification metrics, namely Accuracy, Precision, Recall, and F1-score, and reference-based similarity metrics, namely BLEU \cite{papineni2002bleu}, METEOR \cite{banerjee2005meteor}, ROGUE-L \cite{lin2004rouge}, and BERTScore \cite{zhang2019bertscore}.
 
-For classification performance, Accuracy measures the overall correct classifications, while Precision measures the proportion of True Positive(TP) predictions to the total predicted positives. Recall measures the models ability to detect True Positive predictions from all True Positive predictions available. The F1-score provides a harmonic mean of Precision and Recall, providing a balance between the two metrics.
+For classification performance, Accuracy measures the overall correct classifications, while Precision measures the proportion of True Positive(TP) predictions to the total predicted positives. Recall measures the model's ability to detect True Positive predictions from all True Positive predictions available. The F1-score provides a harmonic mean of Precision and Recall, providing a balance between the two metrics.
 
 The three reference-based similarity metrics used for syntactic similarity are BLEU which measures precision based on exact word/phrase overlap, METEOR which measures a balance of recall and precision allowing synonyms and stemming, and ROUGE-L which measures recall by finding the longest common subsequences of words between the generated and human text. The metric measure semantic similarity is BERTScore which measures similarity using Artificial Intelligence(AI) model embeddings rather than exact word matches.
 

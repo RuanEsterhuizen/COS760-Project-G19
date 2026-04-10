@@ -4,3 +4,8 @@
 *.fls
 *.synctex.gz
 *.synctex(busy)
+*.bbl
+*.pdf
+*.out
+*.blg
+*.xdv
