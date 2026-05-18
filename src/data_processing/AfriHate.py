@@ -3,9 +3,16 @@ import os
 from huggingface_hub import login
 from datasets import load_dataset # Needs to be installed: pip install datasets
 
+'''
+Note: 
+- This code needs to be run in the Project Root Directory in order for file paths to work correctly
+'''
+
+
+
 data_split = ("train", "test", "validation")
 
-dir_path = "AfriHate/"
+dir_path = "data/raw/"
 os.makedirs(dir_path, exist_ok=True)
 
 # Get your API Token from your Hugging Face Account
