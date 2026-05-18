@@ -90,6 +90,7 @@ for split in dataset.keys():
         for paragraph in paragraphs:
             rows.append({
                 "id": global_id,
+                "source":"vukuzenzele"
                 "text": paragraph,
                 "MGT": 0
             })
