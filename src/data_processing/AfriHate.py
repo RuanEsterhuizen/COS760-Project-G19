@@ -30,7 +30,7 @@ for split in data_split:
     df = df.add_column("source", source_data)
 
     # Add MGT Column
-    mgt_data = [True] * len(df)
+    mgt_data = [0] * len(df)
     df = df.add_column("MGT", mgt_data)
 
     # Remove and Rename Columns
