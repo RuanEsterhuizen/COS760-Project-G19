@@ -11,7 +11,7 @@ apiKey = os.getenv("GROQ_API_KEY")
 
 #Might need to change how API key is handled for each LLM API used. The following is for Groq.
 groq_client = Groq(api_key=apiKey)
-#groq_client.set_model("groq-1.5-mini")
+groq_client.set_model("llama-3.1-8b-instant")
 
 #Make sure to set this value to the name of the LLM you are using, this will be used in the output csv file to identify which LLM generated which text.
 LLM_used = "Groq"
