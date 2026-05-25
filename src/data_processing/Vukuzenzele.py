@@ -92,7 +92,7 @@ for split in dataset.keys():
                 "id": global_id,
                 "source":"vukuzenzele"
                 "text": paragraph,
-                "MGT": 0
+                "MGT": 0,
             })
             global_id += 1
 
