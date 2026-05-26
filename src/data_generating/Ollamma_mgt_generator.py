@@ -4,9 +4,9 @@ from tqdm import tqdm
 import os
 
 # MODEL = "qwen2.5:7b"
-MODEL = "gemma3:4b"
+MODEL = "llama3.1"
 IN_FILE = "../../data/hgts/hgt_split_1.csv"
-OUT_FILE = "../../data/mgts/gemma3_4b.csv"
+OUT_FILE = "../../data/mgts/llama3_1.csv"
 
 SYSTEM_PROMPT = """
 You are a data transformation model for generating machine text
