@@ -3,9 +3,10 @@ from ollama import chat
 from tqdm import tqdm
 import os
 
-MODEL = "qwen2.5:7b"
-IN_FILE = "../../data/hgts/hgt_split_2.csv"
-OUT_FILE = "../../data/mgts/quen2_5.csv"
+# MODEL = "qwen2.5:7b"
+MODEL = "llama3.1"
+IN_FILE = "../../data/hgts/hgt_split_1.csv"
+OUT_FILE = "../../data/mgts/llama3_1.csv"
 
 SYSTEM_PROMPT = """
 You are a data transformation model for generating machine text
