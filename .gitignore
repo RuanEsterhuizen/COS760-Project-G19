@@ -12,3 +12,5 @@
 *.vscode
 *AfriHate/
 .env
+*.venv
+data/full_results/test/
