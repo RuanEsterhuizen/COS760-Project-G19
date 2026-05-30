@@ -8,64 +8,39 @@
 \usepackage[normalem]{ulem}
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
 \usepackage{float}
-\usepackage{comment}
-
 \setmainfont{Arial}
-
 \title{Detecting Machine Generated Texts in isiZulu \\[1ex] \large Evaluating pre-trained models and diverse datasets}
 \author{Ruan Esterhuizen (u23532387), Ruben Hannes Gadd (u23633353), Christiaan Strydom (u22498878) \\[1ex] \large Group 19}
 \date{}
-
 \begin{document}
     \maketitle
     \section{Introduction}
-    %To be edited
-    With the dawn of the 20th decade of the 21st millennium, the introduction of AI models such as ChatGPT has caused rippling 
-    effects across the world both positive and negative. Such negative effects include the abuse of these models to 
-    generate texts that are becoming increasingly difficult to differentiate between text written by man. In response 
-    to these issues, NLP techniques are utilized with the purpose of identifying between MGT (Machine generated Text) and 
-    HGT (Human Generated Text). In this report proposal we detail an approach to creating a Zulu-based MGT detection tool. 
-    We chose Zulu/isiZulu since it is the most spoken African language in South Africa and shares linguistic roots with other African
-    languages that fall under the Nguni linguistic tree which include isiXhosa, isiSwati and isiNdebele. Additionally, since isiZulu is
-    not as globally spoken outside of Africa, not many models that focus on such languages exist. Note throughout this proposal the 
-    use of MGT (Machine generated Text) and HGT (Human Generated Text) will be used.
+    With the dawn of the 20th decade of the 21st millennium, the arrival of AI models such as ChatGPT has 
+    caused rippling effects across the globe both positive and negative. Such negative effects include 
+    the abuse of language models or "chatbots" to generate text content that is difficult to differentiate 
+    from text written by man. With further advancements into language models over the years, it has become 
+    more challenging for humans to tell whether a piece of text is machine-generated or not. This research 
+    report aims to provide a solution to the problem via the utilization of NLP techniques to classify if 
+    a given text is MGT (Machine generated Text) or HGT (Human Generated Text). The research report details 
+    the investigation into creating a Zulu-based MGT detection tool. Zulu/isiZulu was chosen as our primary 
+    language since it is the most spoken African language in South Africa and shares linguistic roots with 
+    other African languages that fall under the Nguni linguistic tree which include isiXhosa, siSwati and 
+    isiNdebele. Additionally, since isiZulu is not as globally spoken outside of Africa, there is limited 
+    number of models that prioritize generating text in isiZulu. Note that the use of abbreviations 
+    MGT (Machine Generated Text) and HGT (Human Generated Text) will be used throughout the research report.
+
     \section{Literature Review}
     
     \section{Methodology}
+    %Add small 'intro' if possible
     \subsection{Gathering Datasets}
     The datasets selected to be used for our HGT dataset are datasets 
     isiZulu News, AfriHate* and Vuk'uzenzele which are a collection 
     of news articles, social media posts and magazine articles in isiZulu. 
     Python scripts were created to retrieve the datasets and store them as 
     csv files. 
-
-    \begin{center}
-        \begin{tabular}{l | l | l | l | l}
-            \hline
-            Name & Domain & Size (items) & Description & Repository \\
-            \hline
-            Vuk'uzenzele 
-                & Magazine articles 
-                & 185 
-                & Articles from SA government magazine 
-                & \href{https://github.com/dsfsi/vukuzenzele-nlp}{\uline{link}} \\
-            \hline
-            IsiZulu News
-                & News articles
-                & 752
-                & Scraped publicly available news articles
-                & \href{https://github.com/dsfsi/za-isizulu-siswati-news-2022}{\uline{link}} \\
-            \hline
-            AfriHate* 
-                & Social media 
-                & $\sim$4000 
-                & Scraped public Twitter posts 
-                & \href{https://github.com/AfriHate/AfriHate}{\uline{link}} \\
-            \hline
-        \end{tabular}
-    \end{center}
-    \begin{comment}
-    \begin{table*}[tp]
+    
+    \begin{table}[H]
     \centering
     \begin{tabular}{l l l l l}
     \toprule
@@ -88,9 +63,13 @@
         & \href{https://github.com/AfriHate/AfriHate}{\uline{link}} \\
     \end{tabular}
     \caption{Datasets selected for HGT}
-    \end{table*}
-    \end{comment}
+    \end{table}
+    Bear in mind that the AfriHate* dataset contains benign yet sensitive content 
+    that may be considered offensive to certain groups, yet was still selected due 
+    to being a huge source of text in isiZulu.
     \subsection{Pre-processing Datasets}
+    \subsubsection{isiZulu News}
+    \subsection{Generating MGT}
     \section{Experiments and Results}
 
     \section{Reflections}
