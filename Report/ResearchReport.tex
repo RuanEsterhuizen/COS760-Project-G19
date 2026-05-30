@@ -33,12 +33,14 @@
     
     \section{Methodology}
     %Add small 'intro' if possible
+
     \subsection{Gathering Datasets}
-    The datasets selected to be used for our HGT dataset are datasets 
-    isiZulu News, AfriHate* and Vuk'uzenzele which are a collection 
-    of news articles, social media posts and magazine articles in isiZulu. 
-    Python scripts were created to retrieve the datasets and store them as 
-    csv files. 
+    The datasets selected to be used to create the HGT dataset include datasets: isiZulu News, AfriHate* 
+    and Vuk'uzenzele which are a collection of news articles, social media posts and magazine articles in 
+    isiZulu. The datasets were retrieved via the use of Python scripts that extracted the datasets from 
+    their respective repositories and then pre-processed to remove irrevalent data and to restructure the 
+    format of the dataset so they can be combined later. Further details on pre-processing are covered in 
+    the next section.
     
     \begin{table}[H]
     \centering
@@ -64,11 +66,25 @@
     \end{tabular}
     \caption{Datasets selected for HGT}
     \end{table}
-    Bear in mind that the AfriHate* dataset contains benign yet sensitive content 
-    that may be considered offensive to certain groups, yet was still selected due 
-    to being a huge source of text in isiZulu.
+
+    Bear in mind that the AfriHate* dataset contains benign yet sensitive content that may be considered 
+    offensive to certain groups, yet was still selected due to being a huge source of text in isiZulu.
     \subsection{Pre-processing Datasets}
+    After gathering the datasets, each dataset had to be pre-processed in different ways that restructured 
+    the datasets and removed irrelevant data. Additionally, another collumn was added to each dataset labelled 
+    "mgt" with all records set too 0 that indicates that the text is human generated.
+    \subsubsection{Vuk'uzenzele}
+
     \subsubsection{isiZulu News}
+    The isiZulu news dataset stores the ID, the title of the news article, the label of the news article that 
+    indicates the type of news article (sports, politics, finances, etc.) and the url to the news article. 
+    The label collumn was removed since it was not relevant to the task at hand and the title collumn was 
+    renamed to the source collumn. Afterwards, the text of the news articles in the dataset was extracted from 
+    the provided url and stored in a new collumn labelled "text". Afterwards, the url collumn was removed and 
+    the mgt collumn is then added. The dataset is then stored in a csv file.
+
+    \subsubsection{AfriHate*}
+
     \subsection{Generating MGT}
     \section{Experiments and Results}
 
