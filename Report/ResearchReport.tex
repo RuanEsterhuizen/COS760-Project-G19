@@ -84,18 +84,33 @@
     the datasets and removed irrelevant data. Additionally, another collumn was added to each dataset labelled 
     "mgt" with all records set too 0 that indicates that the text is human generated.
     \subsubsection{Vuk'uzenzele}
-
+    The Vuk'uzenzele dataset stores the Title of the magazine, the author of the magazine, the text of the 
+    magazine article, the edition of the magazine, the language code which denotes the language that the 
+    magazine was written in and the "__index_level_0__" collumn which is of unknown nature. <Continue>
     \subsubsection{isiZulu News}
     The isiZulu news dataset stores the ID, the title of the news article, the label of the news article that 
     indicates the type of news article (sports, politics, finances, etc.) and the url to the news article. 
     The label collumn was removed since it was not relevant to the task at hand and the title collumn was 
     renamed to the source collumn. Afterwards, the text of the news articles in the dataset was extracted from 
-    the provided url and stored in a new collumn labelled "text". Afterwards, the url collumn was removed and 
-    the mgt collumn is then added. The dataset is then stored in a csv file.
+    the provided url and stored in a new collumn labelled "text". If the link to the article was not available 
+    then the the row with the url of the missing link is removed from the dataset Afterwards, the url collumn 
+    was removed and the mgt collumn is then added. The dataset is then stored in a csv file named 
+    "isisZuluDataset.csv".
 
     \subsubsection{AfriHate*}
-
+    <CONTINUE>
+    \subsection{Creating HGT Dataset}
+    After the datasets were pre-processed as each saved as csv files, they were then combined into one csv 
+    file named "dataset.csv" that contains all the HGT. Afterwards, the combined dataset is <Continue>
     \subsection{Generating MGT}
+    \subsection{Training the Models}
+
+    Due to hardware constraints, ZuluLlama3 (8b) was trained using QLoRA <CITATION>, a parameter-efficient 
+    fine-tuning method that maintains performance comparable to full fine-tuning while significantly reducing 
+    memory requirements.
+    
+    \subsection{Testing the Models}
+
     \section{Experiments and Results}
 
     \section{Reflections}
