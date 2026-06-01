@@ -86,13 +86,13 @@
     "mgt" with all records set too 0 that indicates that the text is human generated.
      
     \subsubsection{Vuk'uzenzele}
-    The Vuk'uzenzele dataset stores the Title of the magazine, the author of the magazine, the text of the 
+    The Vuk'uzenzele dataset\citep{Vuk'unzenzele} stores the Title of the magazine, the author of the magazine, the text of the 
     magazine article, the edition of the magazine, the language code which denotes the language that the 
     magazine was written in and the "indexlevel0" collumn which is of unknown nature. Since entries in 
     this dataset consisted of entire magazine articles, samples were chunked into individual paragraphs. 
     Bullets and tabs were also removed from the text.
     \subsubsection{isiZulu News}
-    The isiZulu news dataset stores the ID, the title of the news article, the label of the news article that 
+    The isiZulu news dataset\citep{isiZuluNews} stores the ID, the title of the news article, the label of the news article that 
     indicates the type of news article (sports, politics, finances, etc.) and the url to the news article. 
     The label collumn was removed since it was not relevant to the task at hand and the title collumn was 
     renamed to the source collumn. Afterwards, the text of the news articles in the dataset was extracted from 
@@ -102,7 +102,7 @@
     "isisZuluDataset.csv".
 
     \subsubsection{AfriHate*}
-    The dataset was first cleaned by filtering all text labelled as 'Normal' to ensure all hate speech was 
+    The AfriHate* dataset\citep{Afrihate*} was first cleaned by filtering all text labelled as 'Normal' to ensure all hate speech was 
     removed. Thereafter, the source and MGT columns were appended, where source represents the model that 
     generated the text and MGT being the Boolean column being filled with '0' for being HGT. Lastly, column 
     names were updated and columns were reorganised according to our general CSV format, 'id, source, text, 
