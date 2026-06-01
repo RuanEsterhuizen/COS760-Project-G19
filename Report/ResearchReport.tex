@@ -8,6 +8,7 @@
 \usepackage[normalem]{ulem}
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
 \usepackage{float}
+\usepackage{graphicx}
 \setmainfont{Arial}
 \title{Detecting Machine Generated Texts in isiZulu \\[1ex] \large Evaluating pre-trained models and diverse datasets}
 \author{Ruan Esterhuizen (u23532387), Ruben Hannes Gadd (u23633353), Christiaan Strydom (u22498878) \\[1ex] \large Group 19}
@@ -43,7 +44,7 @@
     for training must also be further generalised by changing the prompts used to generate each MGT.
     \section{Methodology}
     %Add small 'intro' if possible
-
+    
     \subsection{Gathering Datasets}
     The datasets selected to be used to create the HGT dataset include datasets: isiZulu News, AfriHate* 
     and Vuk'uzenzele which are a collection of news articles, social media posts and magazine articles in 
@@ -83,10 +84,13 @@
     After gathering the datasets, each dataset had to be pre-processed in different ways that restructured 
     the datasets and removed irrelevant data. Additionally, another collumn was added to each dataset labelled 
     "mgt" with all records set too 0 that indicates that the text is human generated.
+     
     \subsubsection{Vuk'uzenzele}
     The Vuk'uzenzele dataset stores the Title of the magazine, the author of the magazine, the text of the 
     magazine article, the edition of the magazine, the language code which denotes the language that the 
-    magazine was written in and the "__index_level_0__" collumn which is of unknown nature. <Continue>
+    magazine was written in and the "indexlevel0" collumn which is of unknown nature. Since entries in 
+    this dataset consisted of entire magazine articles, samples were chunked into individual paragraphs. 
+    Bullets and tabs were also removed from the text.
     \subsubsection{isiZulu News}
     The isiZulu news dataset stores the ID, the title of the news article, the label of the news article that 
     indicates the type of news article (sports, politics, finances, etc.) and the url to the news article. 
@@ -98,24 +102,93 @@
     "isisZuluDataset.csv".
 
     \subsubsection{AfriHate*}
-    <CONTINUE>
+    The dataset was first cleaned by filtering all text labelled as 'Normal' to ensure all hate speech was 
+    removed. Thereafter, the source and MGT columns were appended, where source represents the model that 
+    generated the text and MGT being the Boolean column being filled with '0' for being HGT. Lastly, column 
+    names were updated and columns were reorganised according to our general CSV format, 'id, source, text, 
+    MGT' before being saved to their respective CSV file.
+
+    
     \subsection{Creating HGT Dataset}
     After the datasets were pre-processed as each saved as csv files, they were then combined into one csv 
-    file named "dataset.csv" that contains all the HGT. Afterwards, the combined dataset is <Continue>
+    file named "dataset.csv" that contains all the HGT via a python script. Afterwards, the combined dataset 
+    is <Continue>
     \subsection{Generating MGT}
+    The combined HGT set was equally subdivided into 3 csv files, such that each file contained an equal 
+    amount of entries. Ollama was used to run 3 LLMs locally: Quen2.5, Llama3.1 and Mistral. The 7 
+    billion parameter variations for each of these models were used. For each entry in the HGT source 
+    the corresponding MGT was generated.
+
+    The following system prompt was used for each model:
+    \begin{verbatim}
+    You are a data transformation model for generating machine text
+    Task: Convert the given human-generated text into machine-generated text
+    Rules:
+    Preserve meaning
+    Preserve isiZulu and style
+    Do not add explanations
+    Output only the transformed text
+    Output must be one line long
+    \end{verbatim}
+
+    Finally all HGT and MGT entries were combined into a single file (dataset.csv). The dataset contains 
+    12,969 samples in total and has an approximately equal amount of MGTs and HGTs.
+    \subsubsection{Dataset sample}
+    \begin{verbatim}
+        id,source,text,mgt
+        train_isizulu_02223,mistral:7b,"""@username says: 'Hlonipha is cooking food in the kitchen to prepare her weapons'""",True
+        train_isizulu_02831,AfriHate,"ingulube iyanginonela, emini kushisa nokwenza",False
+        test_isizulu_00505,AfriHate,@username 😂😂😂😂😂 uyinja chillbite 🐩,False  
+    \end{verbatim}
+    The 
     \subsection{Training the Models}
 
     Due to hardware constraints, ZuluLlama3 (8b) was trained using QLoRA <CITATION>, a parameter-efficient 
     fine-tuning method that maintains performance comparable to full fine-tuning while significantly reducing 
     memory requirements.
-    
+
     \subsection{Testing the Models}
 
     \section{Experiments and Results}
-
+    \begin{table}[htbp]
+    \centering
+    \caption{Training Arguments for Afro XLMR Large Model}
+    \label{tab:train_args_afro_xlmr}
+    \begin{tabular}{ll}
+    \toprule
+    \textbf{Argument / Hyperparameter} & \textbf{Value} \\
+    \midrule
+    Per Device Train Batch Size & 8 \\
+    Per Device Eval Batch Size & 8 \\
+    Gradient Accumulation Steps & 2 \\
+    Evaluation Strategy & epoch \\
+    Save Strategy & epoch \\
+    Load Best Model at End & True \\
+    Save Total Limit & 2 \\
+    Metric for Best Model & f1 \\
+    Logging Steps & 10 \\
+    FP16 Precision & True \\
+    Dataloader Num Workers & 2 \\
+    Dataloader Pin Memory & True \\
+    Random Seed & 42 \\
+    Weight Decay & 0.01 \\
+    Warmup Ratio & 0.1 \\
+    Num Train Epochs & 5 \\
+    Learning Rate & 2e-5 \\
+    LR Scheduler Type & cosine \\
+    Label Smoothing Factor & 0.05 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
     \section{Reflections}
 
     \section{Conclusion}
+
+    \section{Table I don't know where to put yet}
+    
+   
+
+    
     \bibliographystyle{plainnat}
     \bibliography{reportReferences}
 \end{document}
