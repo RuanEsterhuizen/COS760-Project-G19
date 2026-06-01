@@ -9,6 +9,7 @@
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{svg}
 \setmainfont{Arial}
 \title{Detecting Machine Generated Texts in isiZulu \\[1ex] \large Evaluating pre-trained models and diverse datasets}
 \author{Ruan Esterhuizen (u23532387), Ruben Hannes Gadd (u23633353), Christiaan Strydom (u22498878) \\[1ex] \large Group 19}
@@ -57,7 +58,12 @@
     
     \section{Methodology}
     %Add small 'intro' if possible
-    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.6]{methodology_diagram.png}
+        \caption{Methodology diagram}
+    \end{figure}
+
     \subsection{Gathering Datasets}
     The datasets selected to be used to create the HGT dataset include isiZulu News, AfriHate* 
     and Vuk'uzenzele, which are a collection of news articles, social media posts and magazine 
@@ -197,7 +203,7 @@
     Dataloader Pin Memory & True \\
     Dataloader Num Workers & 8 \\
     Random Seed & 42 \\
-    Optimizer & paged_adamw_8bit \\
+    Optimizer & paged\_adamw\_8bit \\
     Weight Decay & 0.01 \\
     Warmup Ratio & 0.1 \\
     Num Train Epochs & 3 \\
@@ -218,7 +224,7 @@
     \centering
     \caption{Training Arguments for Afro XLMR Large Model}
     \label{tab:train_args_afro_xlmr}
-    \begin{tabular}{ll}
+    \begin{tabular}{l l}
     \toprule
     \textbf{Argument / Hyperparameter} & \textbf{Value} \\
     \midrule
@@ -251,7 +257,36 @@
         \caption{Confusion matrix for Afro\_LLM}
     \end{figure}
 
-
+    \begin{table}[H]
+    \centering
+    \caption{Training Arguments for XLM-RoBERTa Model}
+    \label{tab:train_args_xlm_roberta}
+    \begin{tabular}{l l}
+    \toprule
+    \textbf{Argument / Hyperparameter} & \textbf{Value} \\
+    \midrule
+    Per Device Train Batch Size & 8 \\
+    Per Device Eval Batch Size & 8 \\
+    Gradient Accumulation Steps & 2 \\
+    Evaluation Strategy & epoch \\
+    Save Strategy & epoch \\
+    Load Best Model at End & True \\
+    Save Total Limit & 2 \\
+    Metric for Best Model & f1 \\
+    Logging Steps & 10 \\
+    FP16 Precision & True \\
+    Dataloader Num Workers & 2 \\
+    Dataloader Pin Memory & True \\
+    Random Seed & 42 \\
+    Weight Decay & 0.01 \\
+    Warmup Ratio & 0.1 \\
+    Num Train Epochs & 5 \\
+    Learning Rate & 2e-5 \\
+    LR Scheduler Type & cosine \\
+    Label Smoothing Factor & 0.05 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
 
     \begin{figure}[H]
         \centering
