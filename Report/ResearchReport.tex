@@ -174,6 +174,46 @@
     \subsection{Testing the Models}
 
     \section{Experiments and Results}
+    
+    \begin{table}[htbp]
+    \centering
+    \caption{Training Arguments for Xhosa Zulu Llama3 v1 Model}
+    \label{tab:train_args_zulullama3}
+    \begin{tabular}{ll}
+    \toprule
+    \textbf{Argument / Hyperparameter} & \textbf{Value} \
+    \midrule
+    Per Device Train Batch Size & 8 \\
+    Per Device Eval Batch Size & 8 \\
+    Gradient Accumulation Steps & 2 \\
+    Evaluation Strategy & epoch \\
+    Save Strategy & epoch \\
+    Load Best Model at End & True \\
+    Save Total Limit & 2 \\
+    Metric for Best Model & f1 \\
+    Logging Steps & 10 \\
+    FP16 Precision & True \\
+    Gradient Checkpointing & True \\
+    Dataloader Pin Memory & True \\
+    Dataloader Num Workers & 8 \\
+    Random Seed & 42 \\
+    Optimizer & paged_adamw_8bit \\
+    Weight Decay & 0.01 \\
+    Warmup Ratio & 0.1 \\
+    Num Train Epochs & 3 \\
+    Learning Rate & 2e-5 \\
+    LR Scheduler Type & cosine \\
+    Label Smoothing Factor & 0.05 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale =0.6]{zulu_llama_3_1_confusion_matrix.png}
+        \caption{Confusion matrix for Zulullama3\_1}
+    \end{figure}
+
     \begin{table}[H]
     \centering
     \caption{Training Arguments for Afro XLMR Large Model}
@@ -207,15 +247,11 @@
 
     \begin{figure}[H]
         \centering
-        \includegraphics[scale =0.6]{zulu_llama_3_1_confusion_matrix.png}
-        \caption{Confusion matrix for Zulullama3\_1}
-    \end{figure}
-
-    \begin{figure}[H]
-        \centering
         \includegraphics[scale =0.6]{Afro_LLM_Confusion_matrix.png}
         \caption{Confusion matrix for Afro\_LLM}
     \end{figure}
+
+    
 
     \begin{figure}[H]
         \centering
