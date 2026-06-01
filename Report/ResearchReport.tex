@@ -225,12 +225,50 @@
 
     \begin{table}[H]
     \centering
-    \begin{tabular}{l}
+    \begin{tabular}{l l}
     \toprule
-    \textbf{Model} \\
+    \textbf{Model} & \textbf{test\_loss} \\
     \midrule
-    Zulullama3\_1 \\
+    Zulullama3\_1 
+    & 0.500701785 \\
     XLM-RoBERTa \\
+    \end{tabular}
+    \caption{Performance of models}
+    \end{table}
+
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{l l l l l l l l l}
+    \toprule
+    \textbf{Model} & \textbf{test\_loss} & \textbf{test\_accuracy} & \textbf{test\_precision} & \textbf{test\_recall} & \textbf{test\_f1} & \textbf{test\_runtime} & \textbf{test\_samples\_per second} &\textbf{test\_steps\_per\_second}\\
+    \midrule
+    Zulullama3_1
+        & 0.500701785
+        & 76.82\%
+        & 80.56\%
+        & 70.71\%
+        & 75.31\%
+        & 219.0844
+        & 8.82
+        & 1.114 \\
+    XLM-RoBERTa
+        & 0.5746060609817505
+        & 0.736382322713258
+        & 0.7533039647577092
+        & 0.7029804727646455
+        & 0.7272727272727273
+        & 83.7198
+        & 23.244
+        & 1.457 \\
+    Zulullama3_1
+        & 0.500701785
+        & 76.82\%
+        & 0.7533039647577092
+        & 70.71\%
+        & 75.31\%
+        & 219.0844
+        & 8.82
+        & 1.114 \\
     \end{tabular}
     \caption{Performance of models}
     \end{table}
