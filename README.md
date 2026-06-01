@@ -60,13 +60,13 @@ The following section explains the folder structure of the project repository.
 │   └── // contains project specifications, project proposal and report
 └── src
     ├── data_generating
-    │   └── Ollamma_mgt_generator.py    // for every HGT entry in an input file, generate the corresponding MGT by prompting a local LLM by using Olamma
+    │   └── Ollamma_mgt_generator.py    // generate MGTs by prompting a local LLM by using Olamma
     ├── data_processing
-    │   ├── AfriHate.py                  // pulls all benign isiZulu entries from the AfriHate dataset and saves it in a csv file
+    │   ├── AfriHate.py                  // pulls all benign isiZulu entries from the AfriHate dataset and saves
     │   ├── HGT_Subset_Split.py          // creates 3 equally balanced splits from source hgt files
-    │   ├── Vukuzenzele.py               // pulls all isiZulu entries from the Vukuzenzele dataset and saves it in a csv file
+    │   ├── Vukuzenzele.py               // pulls all isiZulu entries from the Vukuzenzele dataset and saves it
     │   ├── combine.py                   // used to combine muliple csv files
-    │   └── isiZuluExtract.py            // pulls all isiZulu entries from the Vukuzenzele dataset and saves it in a csv file
+    │   └── isiZuluExtract.py            // pulls all isiZulu entries from the Vukuzenzele dataset and saves it
     └── model_training
         └── model_training_setup.ipynb   // classification model training and testing
 ```
