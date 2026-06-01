@@ -37,7 +37,7 @@
     \section{Literature Review}
     For our study, we consulted previous work performed that also aimed to create a model for 
     MGT detection. The paper "Who Wrote This? Identifying Machine vs Human-Generated Text in 
-    Hausa"\citep{hausa} had the aim of developing an MGT detector to identify MGT among HGT 
+    Hausa" \citep{hausa} had the aim of developing an MGT detector to identify MGT among HGT 
     written in the Afro-asiatic low-resource language of Hausa, which was achieved by 
     fine-tuning four pre-trained Afri-centric models on a dataset constituting a mixture of 
     News articles in Hausa and MGT that was generated via Gemini. Of the four models, the 
@@ -102,7 +102,7 @@
     which indicates that the text is human-generated.
      
     \subsubsection{Vuk'uzenzele}
-    The Vuk'uzenzele dataset\citep{Vuk'unzenzele} stores the Title of the magazine, 
+    The Vuk'uzenzele dataset \citep{Vuk'unzenzele} stores the Title of the magazine, 
     the author of the magazine, the text of the magazine article, the edition of the 
     magazine, the language code, which denotes the language that the magazine was 
     written in and the "\_\_index\_level\_0\_\_" column, which is of unknown nature. Since entries 
@@ -110,7 +110,7 @@
     individual paragraphs. Bullets and tabs were also removed from the text.
     
     \subsubsection{isiZulu News}
-    The isiZulu news dataset\citep{isiZuluNews} stores the ID, the title of the news 
+    The isiZulu news dataset \citep{isiZuluNews} stores the ID, the title of the news 
     article, the label of the news article that indicates the type of news article 
     (sports, politics, finances, etc.) and the URL to the news article. The label 
     column was removed since it was not relevant to the task at hand, and the title 
@@ -122,7 +122,7 @@
     "isisZuluDataset.csv".
 
     \subsubsection{AfriHate*}
-    The AfriHate* dataset\citep{Afrihate*} was first cleaned by filtering all text labelled 
+    The AfriHate* dataset \citep{Afrihate*} was first cleaned by filtering all text labelled 
     as 'Normal' to ensure all hate speech was removed. Thereafter, the source and MGT columns 
     were appended, where source represents the model that generated the text, and MGT is the 
     Boolean column being filled with '0' for being HGT. Lastly, column names were updated, and 
@@ -225,50 +225,31 @@
 
     \begin{table}[H]
     \centering
-    \begin{tabular}{l l}
+    \begin{tabular}{l l l l l l l }
     \toprule
-    \textbf{Model} & \textbf{test\_loss} \\
+    \textbf{Model} & \textbf{Loss} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{Runtime} \\
     \midrule
-    Zulullama3\_1 
-    & 0.500701785 \\
-    XLM-RoBERTa \\
-    \end{tabular}
-    \caption{Performance of models}
-    \end{table}
-
-    \begin{table}[H]
-    \centering
-    \begin{tabular}{l l l l l l l l l}
-    \toprule
-    \textbf{Model} & \textbf{test\_loss} & \textbf{test\_accuracy} & \textbf{test\_precision} & \textbf{test\_recall} & \textbf{test\_f1} & \textbf{test\_runtime} & \textbf{test\_samples\_per second} &\textbf{test\_steps\_per\_second}\\
-    \midrule
-    Zulullama3_1
-        & 0.500701785
+    Zulullama3\_1
+        & 0.501
         & 76.82\%
         & 80.56\%
         & 70.71\%
         & 75.31\%
-        & 219.0844
-        & 8.82
-        & 1.114 \\
+        & 219.0844 \\
     XLM-RoBERTa
-        & 0.5746060609817505
-        & 0.736382322713258
-        & 0.7533039647577092
-        & 0.7029804727646455
-        & 0.7272727272727273
-        & 83.7198
-        & 23.244
-        & 1.457 \\
-    Zulullama3_1
-        & 0.500701785
+        & 0.5746
+        & 73.64\%
+        & 75.33\%
+        & 70.29\%
+        & 72.73\%
+        & 83.7198 \\
+    Zulullama3\_1
+        & 0.501
         & 76.82\%
-        & 0.7533039647577092
+        & 80.56\%
         & 70.71\%
         & 75.31\%
-        & 219.0844
-        & 8.82
-        & 1.114 \\
+        & 219.0844 \\
     \end{tabular}
     \caption{Performance of models}
     \end{table}
@@ -279,4 +260,5 @@
 
     \bibliographystyle{plainnat}
     \bibliography{reportReferences}
+
 \end{document}
