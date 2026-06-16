@@ -1,3 +1,5 @@
+#Retired
+
 #To run make sure to install the Groq Python SDK, which can be done using pip:
 #pip install groq
 from groq import Groq
